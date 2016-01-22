@@ -1,0 +1,33 @@
+{
+  "name": "test-protractor-mock-loading-bar",
+  "version": "1.0.0",
+  "description": "Project to test behavior with protractor-http-mock and angular-loading-bar",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node_modules\\.bin\\webdriver-manager update --standalone",
+	"start": "http-server ./ -a localhost -p 9000",
+    "test": "node node_modules\\protractor\\bin\\protractor protractor.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crevil/Test-protractor-mock-loading-bar.git"
+  },
+  "keywords": [
+    "protractor-http-mock",
+    "angular-loading-bar",
+    "protractor"
+  ],
+  "author": "Crevil <https://github.com/Crevil>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Crevil/Test-protractor-mock-loading-bar/issues"
+  },
+  "homepage": "https://github.com/Crevil/Test-protractor-mock-loading-bar#readme",
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-loading-bar": "^0.8.0",
+    "http-server": "^0.8.5",
+    "protractor": "^3.0.0",
+    "protractor-http-mock": "^0.2.1"
+  }
+}

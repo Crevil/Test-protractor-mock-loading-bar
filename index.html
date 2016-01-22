@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <link rel='stylesheet' href='node_modules/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+	
+    <script src="node_modules/angular/angular.js"></script>
+    <script src='node_modules/angular-loading-bar/build/loading-bar.js'></script>
+</head>
+<body ng-app="app" ng-controller='ctrl'>
+	<a id="getWith" ng-click="get(false)" href="#">get with loading bar</a>
+	<a id="getWithout" ng-click="get(true)" href="#">get without loading bar</a>
+	<h1 id="indicator">{{loading}}</h1>
+	<p>{{data}}</p>
+
+	<script>
+		angular
+			.module('app', ['angular-loading-bar'])
+			.controller('ctrl', function ($scope, $http) {
+				$scope.loading = "";
+				
+				$scope.get = function (ignore) {
+					$scope.loading = "Loading...";
+					$scope.data = "";
+					$http.get('http://kendo.cdn.telerik.com/2016.1.112/js/kendo.all.min.js', { cache: false, ignoreLoadingBar: ignore })
+						.then(function (data) {
+							$scope.data = data;
+							$scope.loading = "";
+						});
+				};
+			});
+	</script>
+</body>
+</html>
